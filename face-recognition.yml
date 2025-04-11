@@ -1,0 +1,13 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://localhost:8082
+functions:
+  face-recognition:
+    lang: python3-debian
+    build_args:
+        ADDITIONAL_PACKAGE: "ffmpeg"
+    handler: ./face-recognition
+    image: avinashkodali/face-recognition:latest
+    files:
+     - encoding
